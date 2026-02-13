@@ -3,4 +3,7 @@ if SHIELD_MYKEEB
 config ZMK_KEYBOARD_NAME
     default "baubas keeb"
 
+config SPI
+    default y
+
 endif # SHIELD_MYKEEB
