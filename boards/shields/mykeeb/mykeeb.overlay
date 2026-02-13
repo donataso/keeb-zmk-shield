@@ -6,15 +6,6 @@
 
 #include "mykeeb-layouts.dtsi"
 
-You're right! Here's the updated mykeeb.overlay with the encoder switches as separate GPIO pins:
-dts/*
- * Copyright (c) 2024 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
-#include <dt-bindings/zmk/matrix_transform.h>
-
 / {
     chosen {
         zmk,kscan = &kscan0;
