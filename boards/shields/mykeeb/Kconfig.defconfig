@@ -10,7 +10,7 @@ config ZMK_USB
     default y
 
 config USB_DEVICE_INITIALIZE_AT_BOOT
-    default y
+    default n
 
 config USB_DEVICE_PRODUCT
     default "MyKeeb"
