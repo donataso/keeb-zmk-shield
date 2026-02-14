@@ -1,5 +1,11 @@
 if SHIELD_MYKEEB
 
+config ZMK_KEYBOARD_NAME
+    default "baubas keeb"
+
+config SPI
+    default y
+
 config ZMK_USB
     default y
 
@@ -10,7 +16,7 @@ config USB_DEVICE_MANUFACTURER
     default "ZMK Project"
 
 config USB_DEVICE_PRODUCT
-    default "MyKeeb"
+    default "baubas keeb"
 
 config USB_DEVICE_VID
     default 0x1D50

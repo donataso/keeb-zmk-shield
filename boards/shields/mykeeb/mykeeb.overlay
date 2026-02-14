@@ -1,4 +1,10 @@
+// This file was generated from a template. Edit it to match your keyboard.
+// See https://zmk.dev/docs/development/hardware-integration/new-shield for more
+// instructions.
+
 #include <dt-bindings/zmk/matrix_transform.h>
+
+#include "mykeeb-layouts.dtsi"
 
 / {
     chosen {
@@ -6,23 +12,126 @@
         zmk,matrix_transform = &default_transform;
     };
 
-    kscan0: kscan_0 {
-        compatible = "zmk,kscan-gpio-direct";
+    kscan0: kscan_composite {
+        compatible = "zmk,kscan-composite";
         label = "KSCAN";
+        rows = <6>;
+        columns = <17>;  // 15 matrix + 2 encoder switches
 
-        input-gpios
-            = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+        // Matrix
+        matrix {
+            kscan = <&kscan_matrix>;
+        };
+
+        // Encoder switches
+        direct {
+            kscan = <&kscan_direct>;
+            row-offset = <0>;
+            column-offset = <15>;
+        };
+    };
+
+    kscan_matrix: kscan_matrix {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "MATRIX";
+        diode-direction = "col2row";
+
+        row-gpios
+            = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row0
+            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row1
+            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row2
+            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row3
+            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row4
+            , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row5
+            ;
+
+        col-gpios
+            = <&shift_reg 0 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 1 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 2 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 3 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 4 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 5 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 6 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 7 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 8 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 9 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 10 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 11 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 12 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 13 GPIO_ACTIVE_HIGH>
+            , <&shift_reg 14 GPIO_ACTIVE_HIGH>
             ;
     };
 
-    default_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <3>;
-        rows = <1>;
-        map = <
-RC(0,0) RC(0,1) RC(0,2)
-        >;
+    kscan_direct: kscan_direct {
+        compatible = "zmk,kscan-gpio-direct";
+        label = "DIRECT";
+
+        input-gpios
+            = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder1 switch
+            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder2 switch
+            ;
+    };
+
+    left_encoder: encoder_left {
+        compatible = "alps,ec11";
+        label = "LEFT_ENCODER";
+        a-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;   // P1.00
+        b-gpios = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P0.24
+        resolution = <4>;
+        status = "okay";
+    };
+
+    right_encoder: encoder_right {
+        compatible = "alps,ec11";
+        label = "RIGHT_ENCODER";
+        a-gpios = <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P0.20
+        b-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P0.17
+        resolution = <4>;
+        status = "okay";
+    };
+
+    sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder &right_encoder>;
+    };
+};
+
+&spi1 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio1 1 GPIO_ACTIVE_LOW>;  // P1.01 CS pin
+    
+    shift_reg: 595@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        gpio-controller;
+        spi-max-frequency = <200000>;
+        #gpio-cells = <2>;
+        reg = <0>;
+        label = "74HC595";
+        ngpios = <16>; // Two daisy-chained 74HC595s = 16 outputs
+    };
+};
+
+&pinctrl {
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_MOSI, 1, 7)>,   // P1.07
+                    <NRF_PSEL(SPIM_SCK, 1, 2)>;    // P1.02
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_MOSI, 1, 7)>,   // P1.07
+                    <NRF_PSEL(SPIM_SCK, 1, 2)>;    // P1.02
+            low-power-enable;
+        };
     };
 };
