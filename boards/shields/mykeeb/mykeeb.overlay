@@ -23,22 +23,14 @@
         a-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
-        status = "disabled";
+        status = "okay";
     };
 
     right_encoder: encoder_right {
         compatible = "alps,ec11";
         a-gpios = <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        status = "disabled";
         steps = <80>;
-    };
-
-    &right_encoder {
-        status = "okay";
-    };
-
-    &left_encoder {
         status = "okay";
     };
 
