@@ -68,13 +68,9 @@
         compatible = "zmk,kscan-gpio-direct";
         label = "DIRECT";
 
-        // input-gpios
-        //     = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder1 switch - P0.11 - CAPS
-        //     , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder2 switch - P0.22 - A
-        //     ;
         input-gpios
-            = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&gpio0 11 (GPIO_ACTIVE_LOW)>  // encoder1 switch - P0.11 - CAPS
+            , <&gpio0 22 (GPIO_ACTIVE_LOW)>  // encoder2 switch - P0.22 - A
             ;
     };
 
