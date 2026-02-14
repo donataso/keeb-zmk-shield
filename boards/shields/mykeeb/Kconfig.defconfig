@@ -9,4 +9,19 @@ config SPI
 config ZMK_USB
     default y
 
+config USB_DEVICE_INITIALIZE_AT_BOOT
+    default=y
+
+config USB_DEVICE_PRODUCT
+    default "MyKeeb"
+
+config USB_DEVICE_MANUFACTURER
+    default "baubas"
+
+config USB_DEVICE_VID
+    default 0x1209
+
+config USB_DEVICE_PID
+    default 0x0001
+
 endif # SHIELD_MYKEEB
