@@ -8,7 +8,7 @@
 
         default_layer {
             bindings = <&bootloader &kp E &kp F>;
-            sensor-bindings = <&inc_dec_kp A B>, <&inc_dec_kp C D>;
+            sensor-bindings = <&inc_dec_kp N1 N2>, <&inc_dec_kp N3 N4>;
         };
     };
 };
