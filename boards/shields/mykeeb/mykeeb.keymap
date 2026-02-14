@@ -10,7 +10,7 @@
         default_layer {
             label = "Default";
             bindings = <
-                &bootloader &kp A
+                &kp CAPS &kp A &bootloader
             >;
         };
     };
