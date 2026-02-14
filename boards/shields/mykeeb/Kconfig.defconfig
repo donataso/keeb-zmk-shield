@@ -24,4 +24,10 @@ config USB_DEVICE_VID
 config USB_DEVICE_PID
     default 0x615E
 
+config ZMK_KSCAN_DEBOUNCE_PRESS_MS
+    default 1
+
+config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
+    default 1
+
 endif
