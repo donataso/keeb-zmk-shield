@@ -39,14 +39,14 @@
         row-gpios
             = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row0 - P0.02
             , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row1 - P1.15
-            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row2 - P1.13
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // row2 - P1.13
             , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row3 - P1.11
             , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row4 - P0.10
             , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row5 - P0.09
             ;
 
         col-gpios
-            = <&shift_reg 0 GPIO_ACTIVE_HIGH>
+            = <&shift_reg 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&shift_reg 1 GPIO_ACTIVE_HIGH>
             , <&shift_reg 2 GPIO_ACTIVE_HIGH>
             , <&shift_reg 3 GPIO_ACTIVE_HIGH>
