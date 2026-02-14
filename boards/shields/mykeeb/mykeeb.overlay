@@ -37,12 +37,12 @@
         diode-direction = "col2row";
 
         row-gpios
-            = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row0
-            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row1
-            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row2
-            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row3
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row4
-            , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row5
+            = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row0 - P0.02
+            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row1 - P1.15
+            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row2 - P1.13
+            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row3 - P1.11
+            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row4 - P0.10
+            , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row5 - P0.09
             ;
 
         col-gpios
@@ -69,15 +69,15 @@
         label = "DIRECT";
 
         input-gpios
-            = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder1 switch
-            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder2 switch
+            = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder1 switch - P0.11
+            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder2 switch - P0.22
             ;
     };
 
     left_encoder: encoder_left {
         compatible = "alps,ec11";
         label = "LEFT_ENCODER";
-        a-gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;   // P1.04
+        a-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;   // P1.00
         b-gpios = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P0.24
         resolution = <4>;
         status = "okay";
@@ -86,8 +86,8 @@
     right_encoder: encoder_right {
         compatible = "alps,ec11";
         label = "RIGHT_ENCODER";
-        a-gpios = <&gpio0 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P0.13
-        b-gpios = <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P0.15
+        a-gpios = <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P0.20
+        b-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P0.17
         resolution = <4>;
         status = "okay";
     };
