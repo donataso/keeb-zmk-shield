@@ -1,17 +1,12 @@
-// Baubas Keeb - Test configuration with 2 encoder switches
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/reset.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
-
         default_layer {
-            label = "Default";
-            bindings = <
-                &kp CAPS &kp A &bootloader
-            >;
+            bindings = <&bootloader &kp A>;
         };
     };
 };

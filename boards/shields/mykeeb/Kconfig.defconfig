@@ -1,33 +1,3 @@
 if SHIELD_MYKEEB
 
-config ZMK_KEYBOARD_NAME
-    default "baubas keeb"
-
-# config SPI
-#     default y
-
-config ZMK_USB
-    default y
-
-config USB_DEVICE_STACK
-    default y
-
-config USB_DEVICE_MANUFACTURER
-    default "ZMK Project"
-
-config USB_DEVICE_PRODUCT
-    default "baubas keeb"
-
-config USB_DEVICE_VID
-    default 0x1D50
-
-config USB_DEVICE_PID
-    default 0x615E
-
-config ZMK_KSCAN_DEBOUNCE_PRESS_MS
-    default 5
-
-config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
-    default 5
-
 endif
