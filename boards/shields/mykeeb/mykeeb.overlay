@@ -69,8 +69,8 @@
         label = "DIRECT";
 
         input-gpios
-            = <&gpio0 11 (GPIO_ACTIVE_LOW)>  // encoder1 switch - P0.11 - CAPS
-            , <&gpio0 22 (GPIO_ACTIVE_LOW)>  // encoder2 switch - P0.22 - A
+            = <&gpio0 11 (GPIO_ACTIVE_HIGH)>  // encoder1 switch - P0.11 - CAPS
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH)>  // encoder2 switch - P0.22 - A
             ;
     };
 
