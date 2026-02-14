@@ -6,4 +6,10 @@ config ZMK_KSCAN_DEBOUNCE_PRESS_MS
 config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
     default 5
 
+config EC11
+    default y
+
+config EC11_TRIGGER_GLOBAL_THREAD
+    default y
+
 endif
