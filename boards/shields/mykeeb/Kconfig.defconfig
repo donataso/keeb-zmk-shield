@@ -6,4 +6,16 @@ config ZMK_USB
 config USB_DEVICE_STACK
     default y
 
+config USB_DEVICE_MANUFACTURER
+    default "ZMK Project"
+
+config USB_DEVICE_PRODUCT
+    default "MyKeeb"
+
+config USB_DEVICE_VID
+    default 0x1D50
+
+config USB_DEVICE_PID
+    default 0x615E
+
 endif
