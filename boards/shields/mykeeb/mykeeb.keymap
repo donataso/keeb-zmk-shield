@@ -5,14 +5,8 @@
 / {
     keymap {
         compatible = "zmk,keymap";
-
         default_layer {
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
-            bindings = <
-                &bootloader
-                &kp E
-                &kp F
-            >;
+            bindings = <&bootloader &kp A>;
         };
     };
 };
