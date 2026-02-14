@@ -3,8 +3,8 @@ if SHIELD_MYKEEB
 config ZMK_KEYBOARD_NAME
     default "baubas keeb"
 
-config SPI
-    default y
+# config SPI
+#     default y
 
 config ZMK_USB
     default y

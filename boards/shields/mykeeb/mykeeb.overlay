@@ -12,65 +12,65 @@
         zmk,matrix_transform = &default_transform;
     };
 
-    kscan0: kscan_composite {
-        compatible = "zmk,kscan-composite";
-        label = "KSCAN";
-        rows = <6>;
-        columns = <17>;  // 15 matrix + 2 encoder switches
+    // kscan0: kscan_composite {
+    //     compatible = "zmk,kscan-composite";
+    //     label = "KSCAN";
+    //     rows = <6>;
+    //     columns = <17>;  // 15 matrix + 2 encoder switches
 
-        // Matrix
-        matrix {
-            kscan = <&kscan_matrix>;
-        };
+    //     // Matrix
+    //     matrix {
+    //         kscan = <&kscan_matrix>;
+    //     };
 
-        // Encoder switches
-        direct {
-            kscan = <&kscan_direct>;
-            row-offset = <0>;
-            column-offset = <15>;
-        };
-    };
+    //     // Encoder switches
+    //     direct {
+    //         kscan = <&kscan_direct>;
+    //         row-offset = <0>;
+    //         column-offset = <15>;
+    //     };
+    // };
 
-    kscan_matrix: kscan_matrix {
-        compatible = "zmk,kscan-gpio-matrix";
-        label = "MATRIX";
-        diode-direction = "col2row";
+    // kscan_matrix: kscan_matrix {
+    //     compatible = "zmk,kscan-gpio-matrix";
+    //     label = "MATRIX";
+    //     diode-direction = "col2row";
 
-        row-gpios
-            = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row0 - P0.02
-            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row1 - P1.15
-            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // row2 - P1.13
-            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row3 - P1.11
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row4 - P0.10
-            , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row5 - P0.09
-            ;
+    //     row-gpios
+    //         = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row0 - P0.02
+    //         , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row1 - P1.15
+    //         , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row2 - P1.13
+    //         , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row3 - P1.11
+    //         , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row4 - P0.10
+    //         , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row5 - P0.09
+    //         ;
 
-        col-gpios
-            = <&shift_reg 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&shift_reg 1 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 2 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 3 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 4 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 5 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 6 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 7 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 8 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 9 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 10 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 11 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 12 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 13 GPIO_ACTIVE_HIGH>
-            , <&shift_reg 14 GPIO_ACTIVE_HIGH>
-            ;
-    };
+    //     col-gpios
+    //         = <&shift_reg 0 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 1 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 2 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 3 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 4 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 5 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 6 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 7 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 8 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 9 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 10 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 11 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 12 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 13 GPIO_ACTIVE_HIGH>
+    //         , <&shift_reg 14 GPIO_ACTIVE_HIGH>
+    //         ;
+    // };
 
-    kscan_direct: kscan_direct {
+    kscan0: kscan_direct {
         compatible = "zmk,kscan-gpio-direct";
         label = "DIRECT";
 
         input-gpios
-            = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder1 switch - P0.11
-            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder2 switch - P0.22
+            = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder1 switch - P0.11 - CAPS
+            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // encoder2 switch - P0.22 - A
             ;
     };
 
@@ -98,40 +98,40 @@
     // };
 };
 
-&spi1 {
-    compatible = "nordic,nrf-spim";
-    status = "okay";
+// &spi1 {
+//     compatible = "nordic,nrf-spim";
+//     status = "okay";
     
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio1 1 GPIO_ACTIVE_LOW>;  // P1.01 CS pin
+//     pinctrl-0 = <&spi1_default>;
+//     pinctrl-1 = <&spi1_sleep>;
+//     pinctrl-names = "default", "sleep";
+//     cs-gpios = <&gpio1 1 GPIO_ACTIVE_LOW>;  // P1.01 CS pin
     
-    shift_reg: 595@0 {
-        compatible = "zmk,gpio-595";
-        status = "okay";
-        gpio-controller;
-        spi-max-frequency = <200000>;
-        #gpio-cells = <2>;
-        reg = <0>;
-        label = "74HC595";
-        ngpios = <16>; // Two daisy-chained 74HC595s = 16 outputs
-    };
-};
+//     shift_reg: 595@0 {
+//         compatible = "zmk,gpio-595";
+//         status = "okay";
+//         gpio-controller;
+//         spi-max-frequency = <200000>;
+//         #gpio-cells = <2>;
+//         reg = <0>;
+//         label = "74HC595";
+//         ngpios = <16>; // Two daisy-chained 74HC595s = 16 outputs
+//     };
+// };
 
-&pinctrl {
-    spi1_default: spi1_default {
-        group1 {
-            psels = <NRF_PSEL(SPIM_MOSI, 1, 7)>,   // P1.07
-                    <NRF_PSEL(SPIM_SCK, 1, 2)>;    // P1.02
-        };
-    };
+// &pinctrl {
+//     spi1_default: spi1_default {
+//         group1 {
+//             psels = <NRF_PSEL(SPIM_MOSI, 1, 7)>,   // P1.07
+//                     <NRF_PSEL(SPIM_SCK, 1, 2)>;    // P1.02
+//         };
+//     };
 
-    spi1_sleep: spi1_sleep {
-        group1 {
-            psels = <NRF_PSEL(SPIM_MOSI, 1, 7)>,   // P1.07
-                    <NRF_PSEL(SPIM_SCK, 1, 2)>;    // P1.02
-            low-power-enable;
-        };
-    };
-};
+//     spi1_sleep: spi1_sleep {
+//         group1 {
+//             psels = <NRF_PSEL(SPIM_MOSI, 1, 7)>,   // P1.07
+//                     <NRF_PSEL(SPIM_SCK, 1, 2)>;    // P1.02
+//             low-power-enable;
+//         };
+//     };
+// };
