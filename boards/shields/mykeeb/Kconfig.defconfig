@@ -1,5 +1,8 @@
 if SHIELD_MYKEEB
 
+config ZMK_KEYBOARD_NAME
+    default "baubas keeb"
+
 config EC11
     default y
 
