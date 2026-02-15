@@ -1,11 +1,111 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
 
 / {
-    physical_layout: physical_layout {
-        compatible = "zmk,physical-layout";
-        display-name = "Default Layout";
-        kscan = <&kscan0>;
-        transform = <&default_transform>;
+physical_layout: physical_layout {
+    compatible = "zmk,physical-layout";
+    display-name = "ISO TKL";
+    kscan = <&kscan0>;
+    transform = <&default_transform>;
+    
+    keys
+        // Row 0: ESC, F1-F12, encoders
+        = <&key_physical_attrs 100 100    0   0 0 0 0>  // ESC
+        , <&key_physical_attrs 100 100  200   0 0 0 0>  // F1
+        , <&key_physical_attrs 100 100  300   0 0 0 0>  // F2
+        , <&key_physical_attrs 100 100  400   0 0 0 0>  // F3
+        , <&key_physical_attrs 100 100  500   0 0 0 0>  // F4
+        , <&key_physical_attrs 100 100  650   0 0 0 0>  // F5
+        , <&key_physical_attrs 100 100  750   0 0 0 0>  // F6
+        , <&key_physical_attrs 100 100  850   0 0 0 0>  // F7
+        , <&key_physical_attrs 100 100  950   0 0 0 0>  // F8
+        , <&key_physical_attrs 100 100 1100   0 0 0 0>  // F9
+        , <&key_physical_attrs 100 100 1200   0 0 0 0>  // F10
+        , <&key_physical_attrs 100 100 1300   0 0 0 0>  // F11
+        , <&key_physical_attrs 100 100 1400   0 0 0 0>  // F12
+        , <&key_physical_attrs 100 100 1525   0 0 0 0>  // encoder 1 (no physical key)
+        , <&key_physical_attrs 100 100 1625   0 0 0 0>  // encoder 2 (no physical key)
+        // Row 1: Number row + Insert
+        , <&key_physical_attrs 100 100    0  120 0 0 0>  // `
+        , <&key_physical_attrs 100 100  100  120 0 0 0>  // 1
+        , <&key_physical_attrs 100 100  200  120 0 0 0>  // 2
+        , <&key_physical_attrs 100 100  300  120 0 0 0>  // 3
+        , <&key_physical_attrs 100 100  400  120 0 0 0>  // 4
+        , <&key_physical_attrs 100 100  500  120 0 0 0>  // 5
+        , <&key_physical_attrs 100 100  600  120 0 0 0>  // 6
+        , <&key_physical_attrs 100 100  700  120 0 0 0>  // 7
+        , <&key_physical_attrs 100 100  800  120 0 0 0>  // 8
+        , <&key_physical_attrs 100 100  900  120 0 0 0>  // 9
+        , <&key_physical_attrs 100 100 1000  120 0 0 0>  // 0
+        , <&key_physical_attrs 100 100 1100  120 0 0 0>  // -
+        , <&key_physical_attrs 100 100 1200  120 0 0 0>  // =
+        , <&key_physical_attrs 200 100 1300  120 0 0 0>  // Backspace (2u)
+        , <&key_physical_attrs 100 100 1525  120 0 0 0>  // Insert
+        // Row 2: Tab row + Delete
+        , <&key_physical_attrs 150 100    0  220 0 0 0>  // Tab (1.5u)
+        , <&key_physical_attrs 100 100  150  220 0 0 0>  // Q
+        , <&key_physical_attrs 100 100  250  220 0 0 0>  // W
+        , <&key_physical_attrs 100 100  350  220 0 0 0>  // E
+        , <&key_physical_attrs 100 100  450  220 0 0 0>  // R
+        , <&key_physical_attrs 100 100  550  220 0 0 0>  // T
+        , <&key_physical_attrs 100 100  650  220 0 0 0>  // Y
+        , <&key_physical_attrs 100 100  750  220 0 0 0>  // U
+        , <&key_physical_attrs 100 100  850  220 0 0 0>  // I
+        , <&key_physical_attrs 100 100  950  220 0 0 0>  // O
+        , <&key_physical_attrs 100 100 1050  220 0 0 0>  // P
+        , <&key_physical_attrs 100 100 1150  220 0 0 0>  // [
+        , <&key_physical_attrs 100 100 1250  220 0 0 0>  // ]
+        , <&key_physical_attrs 100 100 1350  220 0 0 0>  // ISO Enter placeholder
+        , <&key_physical_attrs 100 100 1525  220 0 0 0>  // Delete
+        // Row 3: Caps row + Home
+        , <&key_physical_attrs 175 100    0  320 0 0 0>  // Caps (1.75u)
+        , <&key_physical_attrs 100 100  175  320 0 0 0>  // A
+        , <&key_physical_attrs 100 100  275  320 0 0 0>  // S
+        , <&key_physical_attrs 100 100  375  320 0 0 0>  // D
+        , <&key_physical_attrs 100 100  475  320 0 0 0>  // F
+        , <&key_physical_attrs 100 100  575  320 0 0 0>  // G
+        , <&key_physical_attrs 100 100  675  320 0 0 0>  // H
+        , <&key_physical_attrs 100 100  775  320 0 0 0>  // J
+        , <&key_physical_attrs 100 100  875  320 0 0 0>  // K
+        , <&key_physical_attrs 100 100  975  320 0 0 0>  // L
+        , <&key_physical_attrs 100 100 1075  320 0 0 0>  // ;
+        , <&key_physical_attrs 100 100 1175  320 0 0 0>  // '
+        , <&key_physical_attrs 100 100 1275  320 0 0 0>  // ISO #
+        , <&key_physical_attrs 125 200 1375  220 0 0 0>  // ISO Enter (1.25u wide, 2u tall)
+        , <&key_physical_attrs 100 100 1525  320 0 0 0>  // Home
+        // Row 4: Shift row + End
+        , <&key_physical_attrs 125 100    0  420 0 0 0>  // LShift (1.25u)
+        , <&key_physical_attrs 100 100  125  420 0 0 0>  // ISO backslash
+        , <&key_physical_attrs 100 100  225  420 0 0 0>  // Z
+        , <&key_physical_attrs 100 100  325  420 0 0 0>  // X
+        , <&key_physical_attrs 100 100  425  420 0 0 0>  // C
+        , <&key_physical_attrs 100 100  525  420 0 0 0>  // V
+        , <&key_physical_attrs 100 100  625  420 0 0 0>  // B
+        , <&key_physical_attrs 100 100  725  420 0 0 0>  // N
+        , <&key_physical_attrs 100 100  825  420 0 0 0>  // M
+        , <&key_physical_attrs 100 100  925  420 0 0 0>  // ,
+        , <&key_physical_attrs 100 100 1025  420 0 0 0>  // .
+        , <&key_physical_attrs 100 100 1125  420 0 0 0>  // /
+        , <&key_physical_attrs 275 100 1225  420 0 0 0>  // RShift (2.75u)
+        , <&key_physical_attrs 100 100 1525  420 0 0 0>  // Up
+        , <&key_physical_attrs 100 100 1625  420 0 0 0>  // End
+        // Row 5: Bottom row + arrows/PgUp
+        , <&key_physical_attrs 125 100    0  520 0 0 0>  // LCtrl
+        , <&key_physical_attrs 125 100  125  520 0 0 0>  // LWin
+        , <&key_physical_attrs 125 100  250  520 0 0 0>  // LAlt
+        , <&key_physical_attrs 100 100  375  520 0 0 0>  // unused
+        , <&key_physical_attrs 100 100  475  520 0 0 0>  // unused
+        , <&key_physical_attrs 625 100  575  520 0 0 0>  // Space (6.25u)
+        , <&key_physical_attrs 100 100  800  520 0 0 0>  // unused
+        , <&key_physical_attrs 100 100  900  520 0 0 0>  // unused
+        , <&key_physical_attrs 100 100 1000  520 0 0 0>  // unused
+        , <&key_physical_attrs 125 100 1100  520 0 0 0>  // RAlt
+        , <&key_physical_attrs 125 100 1225  520 0 0 0>  // Fn
+        , <&key_physical_attrs 100 100 1425  520 0 0 0>  // Left
+        , <&key_physical_attrs 100 100 1525  520 0 0 0>  // Down
+        , <&key_physical_attrs 100 100 1625  520 0 0 0>  // Right
+        , <&key_physical_attrs 100 100 1725  520 0 0 0>  // PgUp
+        ;
     };
 
     chosen {
