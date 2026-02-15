@@ -15,4 +15,7 @@ config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
 config SPI
     default y
 
+config ZMK_STUDIO
+    default y
+
 endif
