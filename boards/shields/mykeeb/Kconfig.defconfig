@@ -9,4 +9,7 @@ config ZMK_KSCAN_DEBOUNCE_PRESS_MS
 config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
     default 5
 
+config SPI
+    default y
+
 endif
