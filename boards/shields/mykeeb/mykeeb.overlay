@@ -11,7 +11,7 @@
         compatible = "zmk,kscan-composite";
         rows = <6>;
         columns = <17>;
-        label = "KSCAN"
+        label = "KSCAN";
         
         matrix {
             kscan = <&kscan_matrix>;
