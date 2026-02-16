@@ -62,6 +62,11 @@
         wakeup-source;
     };
 
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&kscan_direct>;
+    };
+    
     left_encoder: encoder_left {
         compatible = "alps,ec11";
         a-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -69,7 +74,7 @@
         steps = <80>;
         status = "okay";
     };
-
+    
     right_encoder: encoder_right {
         compatible = "alps,ec11";
         a-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -77,13 +82,25 @@
         steps = <80>;
         status = "okay";
     };
-
+    
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&left_encoder>, <&right_encoder>;
         triggers-per-rotation = <20>;
     };
+
+    // vbatt: vbatt {
+    //     compatible = "zmk,battery-voltage-divider";
+    //     io-channels = <&adc 2>;
+    //     output-ohms = <2000000>;
+    //     full-ohms = <(2000000 + 806000)>;
+    // };
 };
+
+&adc {
+	status = "okay";
+};
+
 
 &spi1 {
     compatible = "nordic,nrf-spim";
