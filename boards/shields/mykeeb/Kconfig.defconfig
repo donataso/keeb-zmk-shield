@@ -18,7 +18,4 @@ config SPI
 config ZMK_STUDIO
     default y
 
-config ZMK_POINTING
-    default y
-
 endif
