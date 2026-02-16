@@ -18,20 +18,20 @@ config SPI
 config ZMK_STUDIO
     default y
 
-config ZMK_PM_SOFT_OFF
-    default y
+# config ZMK_PM_SOFT_OFF
+#     default y
 
-config ZMK_SLEEP
-    default y
+# config ZMK_SLEEP
+#     default y
 
-config BT_CTLR
-	default BT
+# config BT_CTLR
+# 	default BT
 
-config ZMK_BLE
-	default y
+# config ZMK_BLE
+# 	default y
 
-config ZMK_USB
-	default y
+# config ZMK_USB
+# 	default y
 
 # config ZMK_BATTERY_VOLTAGE_DIVIDER
 # 	default y
