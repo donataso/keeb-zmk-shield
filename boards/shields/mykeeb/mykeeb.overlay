@@ -44,7 +44,7 @@
             , <&key_physical_attrs 100 100 1100  120 0 0 0>  // -
             , <&key_physical_attrs 100 100 1200  120 0 0 0>  // =
             , <&key_physical_attrs 200 100 1300  120 0 0 0>  // BSPC (2u)
-            , <&key_physical_attrs 100 100 1525  120 0 0 0>  // PGUP
+            , <&key_physical_attrs 100 100 1725  120 0 0 0>  // PGUP
             // Row 2: 15 keys (TAB, Q-], RET, DEL)
             , <&key_physical_attrs 150 100    0  220 0 0 0>  // TAB (1.5u)
             , <&key_physical_attrs 100 100  150  220 0 0 0>  // Q
@@ -60,8 +60,8 @@
             , <&key_physical_attrs 100 100 1150  220 0 0 0>  // [
             , <&key_physical_attrs 100 100 1250  220 0 0 0>  // ]
             , <&key_physical_attrs 125 200 1375  220 0 0 0>  // ISO Enter (1.25u wide, 2u tall)
-            , <&key_physical_attrs 100 100 1525  220 0 0 0>  // DEL
-            // Row 3: 15 keys (CAPS, A-#, END, PGDN) - no row 3 col 13
+            , <&key_physical_attrs 100 100 1625  220 0 0 0>  // DEL
+            // Row 3: 15 keys (CAPS, A-#, END, PGDN)
             , <&key_physical_attrs 175 100    0  320 0 0 0>  // CAPS (1.75u)
             , <&key_physical_attrs 100 100  175  320 0 0 0>  // A
             , <&key_physical_attrs 100 100  275  320 0 0 0>  // S
@@ -75,9 +75,9 @@
             , <&key_physical_attrs 100 100 1075  320 0 0 0>  // ;
             , <&key_physical_attrs 100 100 1175  320 0 0 0>  // '
             , <&key_physical_attrs 100 100 1275  320 0 0 0>  // ISO #
-            , <&key_physical_attrs 100 100 1425  320 0 0 0>  // END
-            , <&key_physical_attrs 100 100 1525  320 0 0 0>  // PGDN
-            // Row 4: 15 keys (LSHFT, ISO\, Z-/, RSHFT, 2 none)
+            , <&key_physical_attrs 100 100 1625  320 0 0 0>  // END
+            , <&key_physical_attrs 100 100 1725  320 0 0 0>  // PGDN
+            // Row 4: 15 keys (LSHFT, ISO\, Z-/, RSHFT, 2 none) - UP arrow at end
             , <&key_physical_attrs 125 100    0  420 0 0 0>  // LSHFT (1.25u)
             , <&key_physical_attrs 100 100  125  420 0 0 0>  // ISO \
             , <&key_physical_attrs 100 100  225  420 0 0 0>  // Z
@@ -93,7 +93,7 @@
             , <&key_physical_attrs 275 100 1225  420 0 0 0>  // RSHFT (2.75u)
             , <&key_physical_attrs   0   0    0    0 0 0 0>  // none
             , <&key_physical_attrs   0   0    0    0 0 0 0>  // none
-            // Row 5: 15 keys (LCTRL, LWIN, LALT, 2 none, SPACE, none, RCTRL, mo1, mo2, RALT, arrows)
+            // Row 5: 15 keys (LCTRL, LWIN, LALT, 2 none, SPACE, none, RCTRL, mo1, mo2, RALT, LEFT, DOWN, RIGHT, UP)
             , <&key_physical_attrs 125 100    0  520 0 0 0>  // LCTRL
             , <&key_physical_attrs 125 100  125  520 0 0 0>  // LWIN
             , <&key_physical_attrs 125 100  250  520 0 0 0>  // LALT
@@ -101,14 +101,14 @@
             , <&key_physical_attrs   0   0    0    0 0 0 0>  // none
             , <&key_physical_attrs 625 100  375  520 0 0 0>  // SPACE (6.25u)
             , <&key_physical_attrs   0   0    0    0 0 0 0>  // none
-            , <&key_physical_attrs 125 100 1125  520 0 0 0>  // RCTRL (swapped position)
+            , <&key_physical_attrs 125 100 1125  520 0 0 0>  // RCTRL (physically swapped)
             , <&key_physical_attrs 125 100 1250  520 0 0 0>  // mo 1
             , <&key_physical_attrs 125 100 1375  520 0 0 0>  // mo 2
-            , <&key_physical_attrs 125 100 1000  520 0 0 0>  // RALT (swapped position)
+            , <&key_physical_attrs 125 100 1000  520 0 0 0>  // RALT (physically swapped)
             , <&key_physical_attrs 100 100 1525  520 0 0 0>  // LEFT
             , <&key_physical_attrs 100 100 1625  520 0 0 0>  // DOWN
             , <&key_physical_attrs 100 100 1725  520 0 0 0>  // RIGHT
-            , <&key_physical_attrs 100 100 1825  520 0 0 0>  // UP
+            , <&key_physical_attrs 100 100 1625  420 0 0 0>  // UP (above DOWN)
             ;
     };
 
