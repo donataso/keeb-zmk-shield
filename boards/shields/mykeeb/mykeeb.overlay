@@ -7,10 +7,27 @@
         zmk,physical-layout = &physical_layout;
     };
 
-    kscan0: kscan_matrix {
+    kscan0: kscan_composite {
+        compatible = "zmk,kscan-composite";
+        rows = <6>;
+        columns = <17>;
+        label = "KSCAN"
+        
+        matrix {
+            kscan = <&kscan_matrix>;
+        };
+        
+        direct {
+            kscan = <&kscan_direct>;
+            row-offset = <0>;
+            column-offset = <15>;
+        };
+    };
+
+    kscan_matrix: kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
-
+        
         row-gpios
             = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -19,7 +36,7 @@
             , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
-
+        
         col-gpios
             = <&shift_reg 8 GPIO_ACTIVE_HIGH>
             , <&shift_reg 15 GPIO_ACTIVE_HIGH>
@@ -37,6 +54,11 @@
             , <&shift_reg 2 GPIO_ACTIVE_HIGH>
             , <&shift_reg 1 GPIO_ACTIVE_HIGH>
             ;
+    };
+
+    kscan_direct: kscan_direct {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 
     left_encoder: encoder_left {
@@ -59,34 +81,6 @@
         compatible = "zmk,keymap-sensors";
         sensors = <&left_encoder>, <&right_encoder>;
         triggers-per-rotation = <20>;
-    };
-
-    behaviors {
-        enc1_switch: encoder_1_switch {
-            compatible = "zmk,behavior-key-press";
-            #binding-cells = <0>;
-            key = <&kp C_PP>;
-        };
-        
-        enc2_switch: encoder_2_switch {
-            compatible = "zmk,behavior-key-press";
-            #binding-cells = <0>;
-            key = <&kp C_MUTE>;
-        };
-    };
-
-    encoder_switches {
-        compatible = "gpio-keys";
-        
-        encoder_1_button: encoder_1_button {
-            gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-            label = "Encoder 1 Button";
-        };
-        
-        encoder_2_button: encoder_2_button {
-            gpios = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-            label = "Encoder 2 Button";
-        };
     };
 };
 

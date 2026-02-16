@@ -15,6 +15,7 @@
 &kp CAPS  &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp NUHS  &kp END   &kp PG_DN
 &kp LSHFT &kp NUBS  &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT &none     &none
 &kp LCTRL &kp LGUI  &kp LALT  &none     &none     &kp SPACE &none     &mo 1     &mo 2     &kp RCTRL &kp RALT &kp LEFT  &kp DOWN  &kp RIGHT &kp UP
+&kp C_PP &kp C_MUTE
             >;
         };
 
@@ -27,6 +28,7 @@
 &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
 &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &none     &none
 &trans    &trans    &trans    &none     &none     &trans    &none     &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+&trans &trans
             >;
         };
     };
