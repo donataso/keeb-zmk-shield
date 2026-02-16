@@ -95,10 +95,10 @@
             , <&key_physical_attrs   0   0    0    0       0     0     0>  // 79: none
             , <&key_physical_attrs 625 100  375  500       0     0     0>  // 80: SPACE
             , <&key_physical_attrs   0   0    0    0       0     0     0>  // 81: none
-            , <&key_physical_attrs 125 100 1000  500       0     0     0>  // 82: mo 1
-            , <&key_physical_attrs 125 100 1125  500       0     0     0>  // 83: mo 2
-            , <&key_physical_attrs 125 100 1250  500       0     0     0>  // 84: RCTRL
-            , <&key_physical_attrs 125 100 1375  500       0     0     0>  // 85: RALT
+, <&key_physical_attrs 125 100 1001  500       0     0     0>  // 82: mo 1
+, <&key_physical_attrs 125 100 1126  500       0     0     0>  // 83: mo 2  
+, <&key_physical_attrs 125 100 1251  500       0     0     0>  // 84: RCTRL
+, <&key_physical_attrs 125 100 1376  500       0     0     0>  // 85: RALT
             , <&key_physical_attrs 100 100 1500  500       0     0     0>  // 86: LEFT
             , <&key_physical_attrs 100 100 1600  500       0     0     0>  // 87: DOWN
             , <&key_physical_attrs 100 100 1700  500       0     0     0>  // 88: RIGHT
