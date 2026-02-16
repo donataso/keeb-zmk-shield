@@ -9,8 +9,8 @@
 
     kscan0: kscan_composite {
         compatible = "zmk,kscan-composite";
-        rows = <6>;
-        columns = <17>;
+        rows = <7>;
+        columns = <15>;
         label = "KSCAN";
         
         matrix {
@@ -19,8 +19,7 @@
         
         direct {
             kscan = <&kscan_direct>;
-            row-offset = <5>;
-            column-offset = <15>;
+            row-offset = <6>;
         };
     };
 
