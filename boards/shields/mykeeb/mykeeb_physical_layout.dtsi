@@ -97,8 +97,6 @@
             , <&key_physical_attrs 100 100 1600  500       0     0     0>  // 87: DOWN
             , <&key_physical_attrs 100 100 1700  500       0     0     0>  // 88: RIGHT
             , <&key_physical_attrs 100 100 1600  400       0     0     0>  // 89: UP
-            , <&key_physical_attrs 100 100 1525    0       0     0     0>  // 90: encoder 1 switch
-            , <&key_physical_attrs 100 100 1625    0       0     0     0>  // 91: encoder 2 switch
             ;
     };
 };
