@@ -4,7 +4,8 @@
     physical_layout: physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "ISO TKL";
-        kscan = <&kscan0>;
+        // kscan = <&kscan0>;
+        kscan = <&kscan_matrix>;
         transform = <&default_transform>;
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0    0       0     0     0>  // 0: ESC
