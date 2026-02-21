@@ -4,7 +4,7 @@
 / {
     chosen {
         // zmk,kscan = &kscan0;
-        zmk,kscan = &kscan_matrix
+        zmk,kscan = &kscan_matrix;
         zmk,physical-layout = &physical_layout;
     };
 
